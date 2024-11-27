@@ -1,8 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import yt_dlp
 
 app = Flask(__name__)
 
+# Ruta para la página principal
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# Ruta para manejar la descarga
 @app.route('/download', methods=['GET'])
 def download():
     url = request.args.get('url')
@@ -29,4 +35,5 @@ def download():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
