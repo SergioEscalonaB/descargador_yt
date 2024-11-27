@@ -1,1 +1,1 @@
-web: python app.py
+web: pip install --upgrade pip && python app.py
